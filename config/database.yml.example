@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  encoding: utf8
+  pool: 5
+  username: alpha_potok_test
+  password: 'alpha_potok_test'
+
+development:
+  <<: *default
+  database: alpha_potok_test_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: alpha_potok_test_rspec
+
+production:
+  <<: *default
+  database: alpha_potok_test_production
