@@ -20,4 +20,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
-  hello: "Ку!"
+  home_controller:
+    title: Калькулятор доходности инвестиций
+    errors:
+      not_enough_params: Необходимо указать инвестируемую сумму и период
+    calculate:
+      action: Расчитать
+      attributes:
+        labels:
+          initial_amount: Предполагаемый размер инвестиции
+          period: Срок инвестирования
+        placeholders:
+          initial_amount: 10000
+          period: 6
+      messages:
+        expected_amount: Ожидаемый доход %{initial_amount} + %{points} единиц(ы)
+        historical_amount: Исторический доход %{initial_amount} + %{points} единиц(ы)

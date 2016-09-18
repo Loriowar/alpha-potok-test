@@ -1,0 +1,37 @@
+= link_to 'Builder', new_builder_path
+
+%h2.aligner
+  = I18n.t(:title, scope: 'home_controller')
+
+= form_tag('/') do
+  %div.aligner
+    %div.form-align
+      %div.field
+        = label_tag :initial_amount, I18n.t(:initial_amount, scope: 'home_controller.calculate.attributes.labels')
+        = number_field_tag :initial_amount,
+                           @decorator.initial_amount,
+                           placeholder: I18n.t(:initial_amount, scope: 'home_controller.calculate.attributes.placeholders'),
+                           min: 1,
+                           step: 0.01
+      %div.field
+        = label_tag :period, I18n.t(:period, scope: 'home_controller.calculate.attributes.labels')
+        = number_field_tag :period,
+                           @decorator.period || 6,
+                           placeholder: I18n.t(:period, scope: 'home_controller.calculate.attributes.placeholders'),
+                           min: 1,
+                           step: 1,
+                           readonly: true
+
+      %div.submit
+        = submit_tag I18n.t(:action, scope: 'home_controller.calculate')
+
+  - if @decorator.calculated?
+    %div.result-align
+      %div.result-row
+        = I18n.t(:expected_amount, scope: 'home_controller.calculate.messages',
+                                   initial_amount: @decorator.initial_amount,
+                                   points: @decorator.expected_amount)
+      %div.result-row
+        = I18n.t(:historical_amount, scope: 'home_controller.calculate.messages',
+                                     initial_amount: @decorator.initial_amount,
+                                     points: @decorator.historical_amount)

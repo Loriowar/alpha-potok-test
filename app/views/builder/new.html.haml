@@ -1,0 +1,31 @@
+= form_for @user, url: builder_index_path, method: :post do |f|
+  = f.label :user
+  %div
+    = f.label :name
+    = f.text_field :name
+
+  = f.label :credits
+  = f.fields_for :credits do |ff|
+    %div
+      = ff.label :amount
+      = ff.number_field :amount, min: 1
+    %div
+      = ff.label :duration
+      = ff.number_field :duration, min: 1, value: 6, readonly: true
+    %div
+      = ff.label :period
+      = ff.number_field :period, min: 1, value: 1, readonly: true
+    %div
+      = ff.label :annual_rate_base
+      = ff.number_field :annual_rate_base, step: 0.01, min: 0, max: 1
+    %div
+      = ff.label :annual_rate_delay
+      = ff.number_field :annual_rate_delay, step: 0.01, min: 0, max: 1
+
+    = ff.label :credit_payments
+    = ff.fields_for :credit_payments do |fff|
+      %div
+        = fff.label :amount
+        = fff.number_field :amount, step: 0.01, min: 0
+
+  = f.submit 'Create'

@@ -5,6 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 /.idea/
+/.sass-cache/
 
 # Ignore bundler config.
 /.bundle

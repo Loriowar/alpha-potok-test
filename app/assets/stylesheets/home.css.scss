@@ -1,0 +1,33 @@
+.aligner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4em;
+}
+
+.form-align {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .submit {
+    width: 55%;
+    padding-top: 1em;
+  }
+
+  .field {
+    padding: .5em;
+  }
+}
+
+.result-align {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3em;
+
+  .result-row {
+    padding: .5em;
+  }
+}
