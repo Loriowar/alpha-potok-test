@@ -17,8 +17,6 @@
 
 /config/database.yml
 
-/Gemfile.lock
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
